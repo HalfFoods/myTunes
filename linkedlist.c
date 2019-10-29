@@ -8,8 +8,10 @@ struct song_node * insert_front(){
 struct song_node * insert_order(){
 
 }
-void print_list(){
-
+void print_list(struct * song_node s){
+  while(s){
+    printf("")
+  }
 }
 struct song_node * get_node(){
 
