@@ -70,5 +70,11 @@ struct song_node * remove_node(struct song_node * playlist, struct song_node * n
 
 //Vivian
 struct song_node * free_list(struct song_node * playlist){
-
+  struct node * current= playlist;
+  while (playlist) {
+    current = current -> next;
+    free(playlist);
+    playlist = current;
+  }
+  return playlist
 }
