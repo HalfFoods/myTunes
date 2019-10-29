@@ -10,6 +10,8 @@ void print_list(){
 struct song_node * get_node(){
 
 }
+
+//Vivian
 struct song_node * get_artist(){
 
 }
