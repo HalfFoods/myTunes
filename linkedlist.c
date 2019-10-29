@@ -2,16 +2,19 @@
 #include <stdio.h>
 #include <string.h>
 #include "linkedlist.h"
-
+//Jeffrey
 struct song_node * insert_front(){
 
 }
+//Jeffrey
 struct song_node * insert_order(){
 
 }
+//Jeffrey
 void print_list(){
 
 }
+//Jeffrey
 struct song_node * get_node(){
 
 }
