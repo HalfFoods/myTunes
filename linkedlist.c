@@ -31,6 +31,7 @@ struct song_node * get_artist(struct song_node * playlist, char * artist){
   return NULL;
 }
 
+//Vivian
 struct song_node * get_random(struct song_node * playlist){
   struct song_node * current = playlist;
   while (1){ //keep running
@@ -43,9 +44,28 @@ struct song_node * get_random(struct song_node * playlist){
   }
 }
 
-struct song_node * remove_node(struct song_node * playlist, char * artist, char * song){
-
+//Vivian
+struct song_node * remove_node(struct song_node * playlist, struct song_node * node){
+  struct song_node * previous = NULL;
+  struct song_node * current = playlist;
+  while (current->next && current != node) {
+    previous = current;
+    current = current-> next;
+  }
+  if (current == node){ //if node matches
+    if (!(previous)){  //if at the beginning of the list
+      struct song_node * newFront = current->next;
+      free(current);
+      return newFront;
+    }
+    previous->next = current->next;
+    free(current);
+    return playlist;
+  }
+  return playlist;
 }
+
+//Vivian
 struct song_node * free_list(struct song_node * playlist){
 
 }
