@@ -32,8 +32,17 @@ struct song_node * get_artist(struct song_node * playlist, char * artist){
 }
 
 struct song_node * get_random(struct song_node * playlist){
-
+  struct song_node * current = playlist;
+  while (1){ //keep running
+    if (randint() % 5 < 2)
+      return current;
+    }
+    if (!(current->next)){ //if next doesnt exist
+      current = playlist; //reset
+    }
+  }
 }
+
 struct song_node * remove_node(struct song_node * playlist, char * artist, char * song){
 
 }
