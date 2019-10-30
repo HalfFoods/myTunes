@@ -19,11 +19,13 @@ void print_list(struct song_node * s){
   }
   printf("\n");
 }
-/*
-//Jeffrey
-struct song_node * insert_order(){
 
+struct song_node * insert_order(struct song_node * s, char artist [100], char name [100]){
+  while(s){
+    
+  }
 }
+/*
 //Jeffrey
 struct song_node * get_node(){
 
