@@ -3,21 +3,34 @@
 #include <string.h>
 #include "linkedlist.h"
 //Jeffrey
-struct song_node * insert_front(){
-
+struct song_node * insert_front(struct song_node * s, char artist [100], char name [100]){
+  struct song_node * front = malloc(sizeof(struct song_node));
+  strcpy(front->artist, artist);
+  strcpy(front->name, name);
+  front->next = s;
+  return front;
 }
+
 //Jeffrey
-struct song_node * insert_order(){
-
+void print_list(struct song_node * s){
+  while (s){
+    printf("%s: %s | ", s->artist, s-> name);
+    s = s->next;
+  }
+  printf("\n");
 }
-//Jeffrey
-void print_list(){
 
+struct song_node * insert_order(struct song_node * s, char artist [100], char name [100]){
+  while(s){
+
+  }
 }
+/*
 //Jeffrey
 struct song_node * get_node(){
 
 }
+
 
 //Vivian
 struct song_node * get_artist(struct song_node * playlist, char * artist){
