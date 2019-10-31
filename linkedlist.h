@@ -13,3 +13,12 @@ struct song_node * get_artist()
 struct song_node * get_random();
 struct song_node * remove_node();
 struct song_node * free_list();
+//Part 2
+struct song_node * add_song();
+struct song_node * search_song();
+struct song_node * search_artist();
+void print_letter();
+void print_artist();
+void shuffle();
+struct song_node * delete_song();
+struct song_node * clear_lib();
