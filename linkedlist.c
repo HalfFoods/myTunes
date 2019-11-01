@@ -22,12 +22,12 @@ void print_list(struct song_node * s){
 
 struct song_node * insert_order(struct song_node * s, char artist [100], char name [100]){
   struct song_node * cur = s;
-  // special case for beginning
   while(cur->next){
     if (strcmp(artist, cur->next->artist) < 0){
-      cur->next = insert_front(cur, artist, name);
+      cur->next = insert_front(cur->next, artist, name);
       return s;
     }
+    /*
     if (strcmp(artist, cur->artist) == 0){
       while(cur && (strcmp(artist, cur->artist) == 0)){
         if(strcmp(name, cur->name) < 0){
@@ -39,6 +39,7 @@ struct song_node * insert_order(struct song_node * s, char artist [100], char na
       cur = insert_front(cur,artist, name);
       return s;
     }
+    */
     cur = cur-> next;
   }
 }
