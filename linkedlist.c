@@ -21,8 +21,26 @@ void print_list(struct song_node * s){
 }
 
 struct song_node * insert_order(struct song_node * s, char artist [100], char name [100]){
-  while(s){
-
+  struct song_node * cur = s;
+  while(cur->next){
+    if (strcmp(artist, cur->next->artist) < 0){
+      cur->next = insert_front(cur->next, artist, name);
+      return s;
+    }
+    /*
+    if (strcmp(artist, cur->artist) == 0){
+      while(cur && (strcmp(artist, cur->artist) == 0)){
+        if(strcmp(name, cur->name) < 0){
+          cur = insert_front(cur, artist, name);
+          return s;
+        }
+        cur = cur->next;
+      }
+      cur = insert_front(cur,artist, name);
+      return s;
+    }
+    */
+    cur = cur-> next;
   }
 }
 /*
@@ -118,3 +136,4 @@ struct song_node * delete_song(struct song_node * playlist, char * artist, char 
 struct song_node * clear_lib(struct song_node * playlist){
 
 }
+*/
