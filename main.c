@@ -11,5 +11,14 @@ int main(){
   L = insert_front(L, "pearl jam", "alive");
   L = insert_front(L, "pearl jam", "even flow");
   print_list(L);
+
+  printf("--------------------\n");
+  printf("Testing get_artist:\n");
+  printf("--------------------\n");
+  printf("Testing get_random:\n");
+  printf("--------------------\n");
+  printf("Testing remove_node:\n");
+  printf("--------------------\n");
+  printf("Testing free_list:\n");
   return 0;
 }
