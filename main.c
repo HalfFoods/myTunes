@@ -12,7 +12,7 @@ int main(){
   L = insert_front(L, "ac/dc", "thunderstruck");
   print_list(L);
   printf("Added\n");
-  L = insert_order(L, "pearl jam", "yellow ledbetter");
+  L = insert_order(L, "porl jam", "yellow ledbetter");
   print_list(L);
   return 0;
 }
