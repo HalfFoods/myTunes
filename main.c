@@ -42,7 +42,12 @@ int main(){
   print_list(L1);
   printf("--------------------\n");
 
+  printf("Testing find_node:\n");
+  struct song_node * p = NULL;
+  p = find_node(L, "pearl jam", "even flow");
+  p = find_node(L, "pearl jam", "daughter");
   printf("--------------------\n");
+
   printf("Testing get_artist:\n");
   printf("--------------------\n");
   printf("Testing get_random:\n");
