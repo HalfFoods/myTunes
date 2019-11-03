@@ -13,6 +13,9 @@ linkedlist.o: linkedlist.c linkedlist.h
 main.o: main.c linkedlist.h
 	$(CC) -c main.c
 
+leakcheck:
+	valgrind --leak-check=yes ./program
+	
 run:
 	./program
 
