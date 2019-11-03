@@ -65,7 +65,7 @@ int main(){
   printf("--------------------\n");
 
   printf("Testing free_list:\n");
-  free_list();
+  free_list(L);
   printf("Freed list:\n");
   print_list(L);
   return 0;
