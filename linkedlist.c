@@ -121,9 +121,11 @@ struct song_node * remove_node(struct song_node * playlist, char* artist, char* 
       free(current);
       return newFront;
     }
-    previous->next = current->next;
-    free(current);
-    return playlist;
+    else{
+      previous->next = current->next;
+      free(current);
+      return playlist;
+    }
   }
   printf("Song not in playlist\n");
   return playlist;
