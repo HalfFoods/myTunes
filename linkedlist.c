@@ -12,6 +12,40 @@ struct song_node * insert_front(struct song_node * s, char artist [100], char na
 }
 
 //Jeffrey
+struct song_node * insert_order(struct song_node * s, char artist [100], char name [100]){
+  struct song_node * cur = s;
+  // Empty list
+  if (!cur){
+    return insert_front(cur, artist, name);
+  }
+  // Insert at front
+  if (strcmp(artist, cur->artist) < 0){
+    return insert_front(cur, artist, name);
+  }
+  // Find place in list
+  while(cur->next){
+    if (strcmp(artist, cur->next->artist) < 0){
+      cur->next = insert_front(cur->next, artist, name);
+      return s;
+    }
+    // Same artist
+    if (strcmp(artist, cur->next->artist) == 0){
+      if(strcmp(name, cur->next->name) < 0){
+        cur->next = insert_front(cur->next, artist, name);
+        return s;
+      }
+    }
+    cur = cur->next;
+  }
+  // Insert at back
+  struct song_node * back = malloc(sizeof(struct song_node));
+  strcpy(back->artist, artist);
+  strcpy(back->name, name);
+  cur->next = back;
+  return s;
+}
+
+//Jeffrey
 void print_list(struct song_node * s){
   while (s){
     printf("%s: %s | ", s->artist, s-> name);
@@ -20,36 +54,22 @@ void print_list(struct song_node * s){
   printf("\n");
 }
 
-struct song_node * insert_order(struct song_node * s, char artist [100], char name [100]){
-  struct song_node * cur = s;
-  while(cur->next){
-    if (strcmp(artist, cur->next->artist) < 0){
-      cur->next = insert_front(cur->next, artist, name);
-      return s;
-    }
-    /*
-    if (strcmp(artist, cur->artist) == 0){
-      while(cur && (strcmp(artist, cur->artist) == 0)){
-        if(strcmp(name, cur->name) < 0){
-          cur = insert_front(cur, artist, name);
-          return s;
-        }
-        cur = cur->next;
-      }
-      cur = insert_front(cur,artist, name);
-      return s;
-    }
-    */
-    cur = cur-> next;
-  }
-}
-/*
 //Jeffrey
-struct song_node * get_node(){
-
+struct song_node * find_node(struct song_node * s, char artist [100], char name [100]){
+  struct song_node * cur = s;
+  printf("looking for [%s: %s]\n", artist, name);
+  while(cur){
+    if (strcmp(cur->artist, artist) == 0 && strcmp(cur->name, name) == 0){
+      printf("node found! %s: %s\n", artist, name);
+      return cur;
+    }
+    cur = cur->next;
+  }
+  printf("node not found\n");
+  return NULL;
 }
-*/
 
+/*
 //Vivian
 struct song_node * get_artist(struct song_node * playlist, char * artist){
   struct song_node * current = playlist;
