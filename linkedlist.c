@@ -23,6 +23,10 @@ struct song_node * insert_order(struct song_node * s, char artist [100], char na
   if (strcmp(artist, cur->artist) < 0){
     return insert_front(cur, artist, name);
   }
+  // Same artist
+  if (strcmp(artist, cur->artist) == 0 && strcmp(name, cur->name) < 0){
+    return insert_front(cur, artist, name);
+  }
   // Find place in list
   while(cur->next){
     if (strcmp(artist, cur->next->artist) < 0){
@@ -42,6 +46,7 @@ struct song_node * insert_order(struct song_node * s, char artist [100], char na
   struct song_node * back = malloc(sizeof(struct song_node));
   strcpy(back->artist, artist);
   strcpy(back->name, name);
+  back->next = NULL;
   cur->next = back;
   return s;
 }
@@ -49,7 +54,7 @@ struct song_node * insert_order(struct song_node * s, char artist [100], char na
 //Jeffrey
 void print_list(struct song_node * s){
   while (s){
-    printf("%s: %s | ", s->artist, s-> name);
+    printf("%s: %s | ", s->artist, s->name);
     s = s->next;
   }
   printf("\n");
@@ -58,7 +63,7 @@ void print_list(struct song_node * s){
 //Jeffrey
 struct song_node * find_node(struct song_node * s, char artist [100], char name [100]){
   struct song_node * cur = s;
-  printf("looking for [%s: %s]\n", artist, name);
+  printf("looking for [%s: %s]\n\t", artist, name);
   while(cur){
     if (strcmp(cur->artist, artist) == 0 && strcmp(cur->name, name) == 0){
       printf("node found! %s: %s\n", artist, name);
@@ -73,18 +78,19 @@ struct song_node * find_node(struct song_node * s, char artist [100], char name 
 //Vivian
 struct song_node * get_artist(struct song_node * playlist, char * artist){
   struct song_node * current = playlist;
-  printf("looking for %s\n", artist);
+  printf("looking for [%s]\n\t", artist);
   //while next node exists and the current artist is not correct
   while (current->next && strcmp(current->artist, artist) != 0){
     current = current-> next;
   }
   //If the artists match
   if (strcmp(current->artist, artist) == 0){
-    printf("node found! %s: %s\n", artist, current->name);
+    printf("artist found! ");
+    print_list(current);
     return current;
   }
   //If artist is not in the list
-  printf("node not found\n");
+  printf("artist not found\n");
   return NULL;
 }
 
@@ -136,6 +142,7 @@ struct song_node * free_list(struct song_node * playlist){
   struct song_node * current = playlist;
   struct song_node * front = playlist;
   while (front) {
+    printf("freeing node: %s - %s\n", front->artist, front->name);
     current = current -> next;
     free(front);
     front = current;

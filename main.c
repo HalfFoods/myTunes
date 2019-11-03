@@ -70,14 +70,35 @@ int main(){
   L = free_list(L);
   printf("Freed list:\n");
   print_list(L);
-  return 0;
   printf("--------------------\n\n\n");
   printf("Music Library tests:\n");
   printf("--------------------\n");
-  struct song_node * t[27];
-  for (int i=0; i<27; i++){
-    t[i] = NULL;
+  printf("Testing add_song and print_library:\n");
+  struct song_node * table[27];
+  for (int i = 0; i<27; i++){
+    *(table + i) = NULL;
   }
-  add_song(t, "abba", "dancing queen");
-  print_library(t);
+  print_library(table);
+  add_song(table, "clean bandit", "rather be");
+  add_song(table, "clean bandit", "symphony");
+  add_song(table, "gym class heroes", "the fighter");
+  add_song(table, "pearl jam", "alive");
+  add_song(table, "pearl jam", "even flow");
+  add_song(table, "pearl jam", "yellow ledbetter");
+  add_song(table, "pink floyd", "time");
+  print_library(table);
+  printf("--------------------\n");
+  printf("Testing find:\n");
+  p = find(table, "pearl jam", "alive");
+  p = find(table, "pearl jam", "time");
+  printf("--------------------\n");
+  printf("Testing find_artist:\n");
+  p = find_artist(table, "pearl jam");
+  printf("--------------------\n");
+  printf("Testing print_letter:\n");
+  print_letter(table, 'p');
+  printf("--------------------\n");
+  printf("Testing print_artist:\n");
+  print_artist(table, "pearl jam");
+  return 0;
 }
