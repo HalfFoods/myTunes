@@ -1,10 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "linkedlist.h"
+#include "library.h"
 #include <time.h>
 
 int main(){
-  printf("Linked List tests:\n\n");
+  printf("Linked List tests:\n");
+  printf("--------------------\n");
   printf("Testing insert_front and print_list:\n");
   srand(time(NULL));
   struct song_node * L = NULL;
@@ -69,4 +71,13 @@ int main(){
   printf("Freed list:\n");
   print_list(L);
   return 0;
+  printf("--------------------\n\n\n");
+  printf("Music Library tests:\n");
+  printf("--------------------\n");
+  struct song_node * t[27];
+  for (int i=0; i<27; i++){
+    t[i] = NULL;
+  }
+  add_song(t, "abba", "dancing queen");
+  print_library(t);
 }
