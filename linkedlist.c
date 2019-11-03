@@ -48,7 +48,7 @@ struct song_node * insert_order(struct song_node * s, char artist [100], char na
 struct song_node * get_node(){
 
 }
-
+*/
 
 //Vivian
 struct song_node * get_artist(struct song_node * playlist, char * artist){
@@ -109,31 +109,3 @@ struct song_node * free_list(struct song_node * playlist){
   }
   return playlist
 }
-//Part 2 -------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
-//--------------------------------------------------------------------------------------
-struct song_node * add_song(struct song_node * playlist, char * artist, char * song){
-
-}
-struct song_node * search_song(struct song_node * playlist, char * artist, char * song){
-
-}
-struct song_node * search_artist(struct song_node * playlist, char * artist){
-
-}
-void print_letter(struct song_node * playlist, char letter){
-
-}
-void print_artist(struct song_node * playlist, char * artist){
-
-}
-void shuffle(struct song_node * playlist){
-
-}
-struct song_node * delete_song(struct song_node * playlist, char * artist, char * song){
-
-}
-struct song_node * clear_lib(struct song_node * playlist){
-
-}
-*/
