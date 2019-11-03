@@ -1,11 +1,12 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "linkedlist.h"
+#include <time.h>
 
 int main(){
   printf("Linked List tests:\n\n");
-
   printf("Testing insert_front and print_list:\n");
+  srand(time(NULL));
   struct song_node * L = NULL;
   L = insert_front(L, "pearl jam", "sirens");
   L = insert_front(L, "pearl jam", "even flow");
@@ -49,11 +50,23 @@ int main(){
   printf("--------------------\n");
 
   printf("Testing get_artist:\n");
+  get_artist(L, "pearl jam");
+  get_artist(L, "katy perry");
   printf("--------------------\n");
+
   printf("Testing get_random:\n");
+  get_random(L);
+  get_random(L);
   printf("--------------------\n");
+
   printf("Testing remove_node:\n");
+  remove_node(L, "abba", "dancing queen");
+  remove_node(L, "katy perry", "wide awake");
   printf("--------------------\n");
+
   printf("Testing free_list:\n");
+  free_list();
+  printf("Freed list:\n");
+  print_list(L);
   return 0;
 }
