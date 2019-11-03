@@ -134,10 +134,11 @@ struct song_node * remove_node(struct song_node * playlist, char* artist, char* 
 //Vivian
 struct song_node * free_list(struct song_node * playlist){
   struct song_node * current = playlist;
-  while (playlist) {
+  struct song_node * front = playlist;
+  while (front) {
     current = current -> next;
-    free(playlist);
-    playlist = current;
+    free(front);
+    front = current;
   }
-  return playlist;
+  return front;
 }

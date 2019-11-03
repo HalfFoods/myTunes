@@ -62,12 +62,12 @@ int main(){
   printf("--------------------\n");
 
   printf("Testing remove_node:\n");
-  remove_node(L, "abba", "dancing queen");
-  remove_node(L, "katy perry", "wide awake");
+  L = remove_node(L, "abba", "dancing queen");
+  L = remove_node(L, "katy perry", "wide awake");
   printf("--------------------\n");
 
   printf("Testing free_list:\n");
-  free_list(L);
+  L = free_list(L);
   printf("Freed list:\n");
   print_list(L);
   return 0;
