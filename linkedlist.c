@@ -99,7 +99,7 @@ struct song_node * get_random(struct song_node * playlist){
   struct song_node * current = playlist;
   while (1){ //keep running
     if (rand() % 1000 < 3){
-      printf("Random song: [%s: %s]\n", current->artist, current->name);
+      printf("[%s: %s]\n", current->artist, current->name);
       return current;
     }
     if (!(current->next)){ //if next doesnt exist
@@ -125,11 +125,13 @@ struct song_node * remove_node(struct song_node * playlist, char* artist, char* 
     if (!(previous)){  //if at the beginning of the list
       struct song_node * newFront = current->next;
       free(current);
+      print_list(newFront);
       return newFront;
     }
     else{
       previous->next = current->next;
       free(current);
+      print_list(playlist);
       return playlist;
     }
   }

@@ -86,6 +86,10 @@ int main(){
   add_song(table, "pearl jam", "even flow");
   add_song(table, "pearl jam", "yellow ledbetter");
   add_song(table, "pink floyd", "time");
+  add_song(table, "david guetta", "titanium");
+  add_song(table, "billie eilish", "bad guy");
+  add_song(table, "billie eilish", "idontwannabeyouanymore");
+  add_song(table, "billie eilish", "lovely");
   print_library(table);
   printf("--------------------\n");
   printf("Testing find:\n");
@@ -100,5 +104,16 @@ int main(){
   printf("--------------------\n");
   printf("Testing print_artist:\n");
   print_artist(table, "pearl jam");
+  printf("--------------------\n");
+  printf("Testing shuffle:\n");
+  shuffle(table);
+  printf("--------------------\n");
+  printf("Testing remove_song:\n");
+  p = remove_song(table, "david guetta", "titanium");
+  printf("--------------------\n");
+  printf("Testing clear_library:\n");
+  clear_library(table);
+  printf("Freed list:\n");
+  print_library(table);
   return 0;
 }

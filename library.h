@@ -6,4 +6,4 @@ void print_library(struct song_node * table[27]);
 void print_artist(struct song_node * table[27], char artist[100]);
 void shuffle();
 struct song_node * remove_song();
-struct song_node * clear_library();
+struct song_node ** clear_library();
